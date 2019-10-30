@@ -459,7 +459,7 @@
             position: fixed;
             right: 100%;
             top: 50px;
-            width: 50%;
+            width: 100%;
             height: 100%;
             border: none;
             transition: right 0.5s ease-in-out;

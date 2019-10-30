@@ -46,4 +46,4 @@ RUN npm run dev >/dev/null 2>&1
 EXPOSE 80
 EXPOSE 8080
 
-CMD php artisan serve --host=0.0.0.0 --port=8080
+CMD php artisan serve --host=0.0.0.0 --port=80
