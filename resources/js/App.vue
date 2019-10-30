@@ -139,7 +139,7 @@
                 if (this.showMenu) {
                     $('#menu-icon').removeClass('spin-left').addClass('spin-right');
                     main.css('left', '100%');
-                    nav.css('right', '50%');
+                    nav.css('right', 0);
                 } else {
                     $('#menu-icon').addClass('spin-right').addClass('spin-left');
                     main.css('left', 0);
@@ -354,7 +354,7 @@
         cursor: pointer;
         width: 91%;
         border-bottom: 1px solid #ede5cb;
-        font-size: 13px;
+        font-size: 16px;
         text-transform: uppercase;
         color: white;
         position: relative;
@@ -463,6 +463,10 @@
             height: 100%;
             border: none;
             transition: right 0.5s ease-in-out;
+        }
+
+        #nav-container {
+            margin-top: 30px;
         }
 
         #main {
