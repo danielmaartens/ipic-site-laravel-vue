@@ -43675,7 +43675,7 @@ var render = function() {
     _vm._v(" "),
     _c("h3", { staticClass: "heading" }, [_vm._v("A Clear Focus")]),
     _vm._v(" "),
-    _c("p", [
+    _c("p", { staticClass: "content" }, [
       _vm._v(
         "The Group has a clear focus on providing high quality neighbourhood shopping centres in or near prime residential areas, thereby servicing the everyday needs of the local community. Its long-term goal is to actively invest in diverse property-related income streams and development opportunities across the globe."
       )

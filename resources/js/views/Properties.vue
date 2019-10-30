@@ -39,7 +39,7 @@
         </div>
 
         <h3 class="heading">A Clear Focus</h3>
-        <p>The Group has a clear focus on providing high quality neighbourhood shopping centres in or near prime residential areas, thereby servicing the everyday needs of the local community. Its long-term goal is to actively invest in diverse property-related income streams and development opportunities across the globe.</p>
+        <p class="content">The Group has a clear focus on providing high quality neighbourhood shopping centres in or near prime residential areas, thereby servicing the everyday needs of the local community. Its long-term goal is to actively invest in diverse property-related income streams and development opportunities across the globe.</p>
 
         <h3 class="heading">A Value Creation approach</h3>
         <p class="content">Ipic Properties aims to maximise shareholder value and return on investment through creative acquisitions, proactive management, and a high level of expertise in managing minor and major development or refurbishment projects.
