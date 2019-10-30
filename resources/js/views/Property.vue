@@ -22,7 +22,7 @@
                 <div>South Africa</div>
                     <div v-if="mobile">
                         <h4 class="h-emergency">Emergency Contact</h4>
-                        <a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
+                        <div><a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a></div>
                     </div>
                 </div>
 
@@ -198,6 +198,7 @@
         },
         async mounted() {
             console.log('property');
+            const anchor = $('#rc-anchor-alert');
             const width = window.innerWidth;
             if (width <= 650) {
                 this.mobile = true;
@@ -231,6 +232,10 @@
             }
 
             recaptchaOnload();
+
+            setTimeout(() => {
+                $('#rc-anchor-alert').css('display', 'none');
+            }, 1000)
         },
         computed: {
             ...mapState([

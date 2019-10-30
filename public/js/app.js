@@ -2972,7 +2972,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _mounted = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var width, id, key, size, _captchaTries, recaptchaOnload;
+      var anchor, width, id, key, size, _captchaTries, recaptchaOnload;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -2997,6 +2997,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               };
 
               console.log('property');
+              anchor = $('#rc-anchor-alert');
               width = window.innerWidth;
 
               if (width <= 650) {
@@ -3005,17 +3006,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               id = this.$route.params.id;
               this.images = this.propertyImages.indexedImages[id];
-              _context.next = 8;
+              _context.next = 9;
               return this.getPropertyData(id);
 
-            case 8:
+            case 9:
               $('#overview').html(this.selectedProperty.info.overview);
               key = this.recaptachaTestCredentials.key;
               size = this.mobile ? 'normal' : 'compact';
               _captchaTries = 0;
               recaptchaOnload();
+              setTimeout(function () {
+                $('#rc-anchor-alert').css('display', 'none');
+              }, 1000);
 
-            case 13:
+            case 15:
             case "end":
               return _context.stop();
           }
@@ -7694,7 +7698,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "html, body {\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  height: 100%;\n}\n@-webkit-keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@-webkit-keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n@keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  background-color: white;\n  height: 100%;\n}\n#app-container {\n  margin: 0 auto;\n  width: 70%;\n  background-color: white;\n  padding: 5px;\n  height: 100%;\n}\n@media (max-width: 768px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n}\n#main-container {\n  display: -webkit-box;\n  display: flex;\n  height: 100%;\n}\n#nav {\n  background-color: #040065;\n  width: 200px;\n  color: white;\n  vertical-align: top;\n  border-right: 1px solid white;\n  font-weight: bold;\n}\n#main {\n  display: table-cell;\n  overflow: auto;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.content-logo {\n  margin-left: 5px;\n}\na, button {\n  text-decoration: none;\n  color: inherit;\n}\nimg {\n  vertical-align: middle;\n}\n#ipic-logo-big img {\n  display: block;\n  height: 50px;\n}\n#ipic-logo-small {\n  display: none;\n}\n.header {\n  border-bottom: 3px solid white;\n  display: -webkit-box;\n  display: flex;\n  /*background-image: linear-gradient(90deg, #040065 40%, #444084);*/\n  background-color: #040065;\n}\n.header-logo {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  cursor: pointer;\n}\n.middle-header-container {\n  -webkit-box-flex: 1;\n          flex: 1;\n  background-color: #040065;\n}\n.header-logo-ipic {\n  display: inline-block;\n  border-right: 3px solid white;\n}\n.header-logo-ipic img {\n  height: 60px;\n}\n.nav-logo-group {\n  display: inline-block;\n  -webkit-box-flex: 0.95;\n          flex: 0.95;\n  background-color: #040065;\n}\n.nav-logo-group img {\n  height: 28px;\n  position: relative;\n  left: 16px;\n  top: 19px;\n}\n#menu-button {\n  cursor: pointer;\n  display: none;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  background-color: #040065;\n}\n#menu-button img {\n  height: 20px;\n}\n#menu-icon {\n  display: none;\n  height: 20px;\n  vertical-align: middle;\n  top: 14px;\n  right: 14px;\n  position: absolute;\n}\n#menu-icon-wrapper {\n  height: 100%;\n  display: inline-block;\n}\n.spin-right {\n  -webkit-animation: spin-right 300ms linear;\n          animation: spin-right 300ms linear;\n}\n.spin-left {\n  -webkit-animation: spin-left 300ms linear;\n          animation: spin-left 300ms linear;\n}\n.container {\n  padding: 0 20px 20px 20px;\n  font-size: 14px;\n  background-color: #fbfbfb;\n  height: 100%;\n}\n.content-container {\n  height: 100%;\n  padding: 5px;\n}\n.nav-link-main {\n  cursor: pointer;\n  width: 91%;\n  border-bottom: 1px solid #ede5cb;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  position: relative;\n  left: 5%;\n}\n.no-link {\n  cursor: default;\n}\n.nav-container {\n  width: 100%;\n  margin-top: 20px;\n}\n.nav-link-main a {\n  text-decoration: none;\n  color: white;\n}\n.nav-link {\n  cursor: pointer;\n  font-size: 14px;\n  color: white !important;\n  padding-left: 6%;\n  text-decoration: none;\n  display: block;\n}\n.nav-link-main-container {\n  margin: 20px 0 20px 0;\n}\n.links-container {\n  padding-top: 5px;\n}\n.left {\n  float: left;\n}\n.right {\n  float: right;\n}\n.carousel {\n  overflow: hidden;\n  min-width: 100%;\n  width: 0;\n  height: 350px;\n}\n.clear-left {\n  clear: left;\n}\n.clear-right {\n  clear: right;\n}\n.header-with-icon {\n  display: inline-block;\n  margin-right: 5px;\n  margin-bottom: 7px;\n  margin-top: 0;\n}\n.icon {\n  vertical-align: middle;\n}\nh1, h2, h3, h4 {\n  color: darkblue;\n}\n.headings {\n  margin-bottom: 2px;\n}\n.content {\n  margin-top: 0;\n  font-size: 1em;\n}\n.info-wrapper {\n  clear: left;\n}\n.bottom-space {\n  height: 10%;\n}\n@media (max-width: 650px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n#nav {\n    position: fixed;\n    right: 100%;\n    top: 50px;\n    width: 100%;\n    height: 100%;\n    border: none;\n    -webkit-transition: right 0.5s ease-in-out;\n    transition: right 0.5s ease-in-out;\n}\n#nav-container {\n    margin-top: 30px;\n}\n#main {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    -webkit-transition: left 500ms ease-in-out;\n    transition: left 500ms ease-in-out;\n    top: 51px;\n}\n#app {\n    background: none;\n    padding: 0;\n}\n.nav-link {\n    font-size: 17px;\n    font-weight: 500;\n}\n.header-logo-ipic img {\n    height: 48px;\n}\n.nav-logo-group img {\n    left: 6px;\n    height: 22px;\n    position: relative;\n    top: 3px;\n}\n#menu-icon {\n    display: inline-block;\n}\n.container {\n    font-size: 13px;\n    padding: 0 10px 20px 10px;\n}\n.header {\n    position: fixed;\n    width: 100%;\n    z-index: 1;\n}\n.header-logo {\n    display: block;\n    -webkit-box-flex: 0;\n            flex: none;\n}\n.middle-header-container {\n    display: none;\n}\n.header-logo-ipic {\n    /*border: none;*/\n}\n}", ""]);
+exports.push([module.i, "html, body {\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  height: 100%;\n}\n@-webkit-keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@-webkit-keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n@keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  background-color: white;\n  height: 100%;\n}\n#app-container {\n  margin: 0 auto;\n  width: 70%;\n  background-color: white;\n  padding: 5px;\n  height: 100%;\n}\n@media (max-width: 768px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n}\n#main-container {\n  display: -webkit-box;\n  display: flex;\n  height: 100%;\n}\n#nav {\n  background-color: #040065;\n  width: 200px;\n  color: white;\n  vertical-align: top;\n  border-right: 1px solid white;\n  font-weight: bold;\n}\n#main {\n  display: table-cell;\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow-y: scroll;\n}\n.content-logo {\n  margin-left: 5px;\n}\na, button {\n  text-decoration: none;\n  color: inherit;\n}\nimg {\n  vertical-align: middle;\n}\n#ipic-logo-big img {\n  display: block;\n  height: 50px;\n}\n#ipic-logo-small {\n  display: none;\n}\n.header {\n  border-bottom: 3px solid white;\n  display: -webkit-box;\n  display: flex;\n  /*background-image: linear-gradient(90deg, #040065 40%, #444084);*/\n  background-color: #040065;\n}\n.header-logo {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  cursor: pointer;\n}\n.middle-header-container {\n  -webkit-box-flex: 1;\n          flex: 1;\n  background-color: #040065;\n}\n.header-logo-ipic {\n  display: inline-block;\n  border-right: 3px solid white;\n}\n.header-logo-ipic img {\n  height: 60px;\n}\n.nav-logo-group {\n  display: inline-block;\n  -webkit-box-flex: 0.95;\n          flex: 0.95;\n  background-color: #040065;\n}\n.nav-logo-group img {\n  height: 28px;\n  position: relative;\n  left: 16px;\n  top: 19px;\n}\n#menu-button {\n  cursor: pointer;\n  display: none;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  background-color: #040065;\n}\n#menu-button img {\n  height: 20px;\n}\n#menu-icon {\n  display: none;\n  height: 20px;\n  vertical-align: middle;\n  top: 14px;\n  right: 14px;\n  position: absolute;\n}\n#menu-icon-wrapper {\n  height: 100%;\n  display: inline-block;\n}\n.spin-right {\n  -webkit-animation: spin-right 300ms linear;\n          animation: spin-right 300ms linear;\n}\n.spin-left {\n  -webkit-animation: spin-left 300ms linear;\n          animation: spin-left 300ms linear;\n}\n.container {\n  padding: 0 20px 20px 20px;\n  font-size: 14px;\n  background-color: #fbfbfb;\n  height: 100%;\n  overflow-y: scroll;\n}\n.content-container {\n  height: 100%;\n  padding: 5px;\n  overflow-y: scroll;\n}\n.nav-link-main {\n  cursor: pointer;\n  width: 91%;\n  border-bottom: 1px solid #ede5cb;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  position: relative;\n  left: 5%;\n}\n.no-link {\n  cursor: default;\n}\n.nav-container {\n  width: 100%;\n  margin-top: 20px;\n}\n.nav-link-main a {\n  text-decoration: none;\n  color: white;\n}\n.nav-link {\n  cursor: pointer;\n  font-size: 14px;\n  color: white !important;\n  padding-left: 6%;\n  text-decoration: none;\n  display: block;\n}\n.nav-link-main-container {\n  margin: 20px 0 20px 0;\n}\n.links-container {\n  padding-top: 5px;\n}\n.left {\n  float: left;\n}\n.right {\n  float: right;\n}\n.carousel {\n  overflow: hidden;\n  min-width: 100%;\n  width: 0;\n  height: 350px;\n}\n.clear-left {\n  clear: left;\n}\n.clear-right {\n  clear: right;\n}\n.header-with-icon {\n  display: inline-block;\n  margin-right: 5px;\n  margin-bottom: 7px;\n  margin-top: 0;\n}\n.icon {\n  vertical-align: middle;\n}\nh1, h2, h3, h4 {\n  color: darkblue;\n}\n.headings {\n  margin-bottom: 2px;\n}\n.content {\n  margin-top: 0;\n  font-size: 1em;\n}\n.info-wrapper {\n  clear: left;\n}\n.bottom-space {\n  height: 10%;\n}\n@media (max-width: 650px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n#nav {\n    position: fixed;\n    right: 100%;\n    top: 50px;\n    width: 100%;\n    height: 100%;\n    border: none;\n    -webkit-transition: right 0.5s ease-in-out;\n    transition: right 0.5s ease-in-out;\n}\n#nav-link-main {\n    padding-top: 10px;\n}\n#nav-container {\n    margin-top: 30px;\n}\n#main {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    -webkit-transition: left 500ms ease-in-out;\n    transition: left 500ms ease-in-out;\n    top: 51px;\n    overflow-y: scroll;\n}\n#app {\n    background: none;\n    padding: 0;\n}\n.nav-link {\n    font-size: 17px;\n    font-weight: 500;\n}\n.header-logo-ipic img {\n    height: 48px;\n}\n.nav-logo-group img {\n    left: 6px;\n    height: 22px;\n    position: relative;\n    top: 3px;\n}\n#menu-icon {\n    display: inline-block;\n}\n.container {\n    font-size: 13px;\n    padding: 0 10px 20px 10px;\n    overflow-y: scroll;\n}\n.header {\n    position: fixed;\n    width: 100%;\n    z-index: 1;\n}\n.header-logo {\n    display: block;\n    -webkit-box-flex: 0;\n            flex: none;\n}\n.middle-header-container {\n    display: none;\n}\n.header-logo-ipic {\n    /*border: none;*/\n}\n}", ""]);
 
 // exports
 
@@ -43899,22 +43903,24 @@ var render = function() {
                         _vm._v("Emergency Contact")
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "h-emergency-link",
-                          attrs: {
-                            href:
-                              "tel:" +
-                              _vm.selectedProperty.info.emergency_number
-                          }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.selectedProperty.info.emergency_number)
-                          )
-                        ]
-                      )
+                      _c("div", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "h-emergency-link",
+                            attrs: {
+                              href:
+                                "tel:" +
+                                _vm.selectedProperty.info.emergency_number
+                            }
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.selectedProperty.info.emergency_number)
+                            )
+                          ]
+                        )
+                      ])
                     ])
                   : _vm._e()
               ]),

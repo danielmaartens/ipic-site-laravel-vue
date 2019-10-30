@@ -230,8 +230,8 @@
 
     #main {
         display: table-cell;
-        overflow: auto;
         flex: 1;
+        overflow-y: scroll;
     }
 
     .content-logo {
@@ -343,11 +343,13 @@
         font-size: 14px;
         background-color: #fbfbfb;
         height: 100%;
+        overflow-y: scroll;
     }
 
     .content-container {
         height: 100%;
         padding: 5px;
+        overflow-y: scroll;
     }
 
     .nav-link-main {
@@ -465,6 +467,10 @@
             transition: right 0.5s ease-in-out;
         }
 
+        #nav-link-main {
+            padding-top: 10px;
+        }
+
         #nav-container {
             margin-top: 30px;
         }
@@ -476,6 +482,7 @@
             left: 0;
             transition: left 500ms ease-in-out;
             top: 51px;
+            overflow-y: scroll;
         }
 
         #app {
@@ -512,6 +519,7 @@
         .container {
             font-size: 13px;
             padding: 0 10px 20px 10px;
+            overflow-y: scroll;
         }
 
         .header {
