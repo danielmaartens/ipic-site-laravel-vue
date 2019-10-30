@@ -72,7 +72,7 @@
         <p class="content">Looking to sell your shopping centre? Ipic Properties welcomes your potential business. Ipic Properties will enter negotiations with owners of retail centres which achieve a Net Operating Income of at least R12m per annum.</p>
         <h4 class="heading">Commercial Property Brokers</h4>
         <p class="content">Register as a broker and earn commission when we purchase one of your client’s properties. Ipic Properties will enter negotiations with owners of retail centres which achieve a Net Operating Income of at least R12m per annum.</p>
-
+        <div class="bottom-space"></div>
     </div>
 </template>
 

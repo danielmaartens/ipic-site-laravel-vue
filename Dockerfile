@@ -30,7 +30,7 @@ RUN apk --update add wget \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN echo "Installing dependencies and setting up app... Get some coffee, this may take a while..."
 RUN echo "Installing PHP extensions..."
-RUN docker-php-ext-install mbstring pdo >/dev/null 2>&1
+RUN docker-php-ext-install mbstring pdo pdo_mysql >/dev/null 2>&1
 RUN rm /var/cache/apk/*
 
 COPY . /app
@@ -43,6 +43,7 @@ RUN npm install >/dev/null 2>&1
 
 RUN npm run dev >/dev/null 2>&1
 
-EXPOSE 3300
+EXPOSE 80
+EXPOSE 8080
 
-CMD php artisan serve --host=0.0.0.0 --port=3300
+CMD php artisan serve --host=0.0.0.0 --port=8080

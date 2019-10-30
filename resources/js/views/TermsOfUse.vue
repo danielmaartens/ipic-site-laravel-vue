@@ -165,7 +165,7 @@
 
         <div><b>13. DOMICILIUM</b></div>
         <div>13.1 Ipic (Pty) Ltd chooses as its domicilium citandi et executandi for all purposes under this agreement, whether in respect of court process, notice, or other documents or communication of whatsoever nature, 2nd Floor, Selective House, Cnr. Of Edward & Oakdale Street, Tygervalley, 7530, South Africa.</div>
-
+        <div class="bottom-space"></div>
     </div>
 </template>
 

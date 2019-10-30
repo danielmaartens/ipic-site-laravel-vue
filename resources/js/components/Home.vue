@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <Header/>
         <ImageSlider :get-image="getImage" :images="propertyImages.all"/>
         <div class="buttons">
             <router-link class="home-button" to="/investments">
@@ -22,14 +23,15 @@
 </template>
 
 <script>
-    import ImageSlider from "../components/ImageSlider";
     import {mapState} from 'vuex';
+    import ImageSlider from "../components/ImageSlider";
+    import Header from '@/components/Header.vue';
 
     export default {
         name: 'home',
         components: {
             ImageSlider,
-            // agile: VueAgile,
+            Header
         },
         mounted() {
 
@@ -95,6 +97,11 @@
 
     .content-fill {
         height: 100%;
-        background-image: linear-gradient(0deg, #040065 50%, #49458F);
+        // background-image: linear-gradient(180deg, #040065, #49458F 70%);
+        background-color:  #040065;
+
+        @media (max-width: 650px) {
+            height: 50%;
+        }
     }
 </style>

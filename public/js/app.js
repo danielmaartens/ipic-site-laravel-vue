@@ -1853,8 +1853,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-google-maps */ "./node_modules/vue2-google-maps/dist/main.js");
 /* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Main_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Main.vue */ "./resources/js/components/Main.vue");
-/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Header.vue */ "./resources/js/components/Header.vue");
-/* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Footer.vue */ "./resources/js/components/Footer.vue");
+/* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Footer.vue */ "./resources/js/components/Footer.vue");
+//
+//
 //
 //
 //
@@ -1947,7 +1948,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
   load: {
     key: 'AIzaSyD1EUgIzLcg8vL_9acdI9G54M22kQ5YbXQ',
@@ -1958,8 +1958,7 @@ Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
   name: 'app',
   components: {
     Main: _components_Main_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
     console.log('App');
@@ -1969,7 +1968,7 @@ Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
     $('#menu-icon').css('left', width - 45);
 
     if (width <= 650) {
-      this.mobile = true;
+      this.mobile = true; // $('#nav').width(width);
     }
   },
   data: function data() {
@@ -1982,13 +1981,12 @@ Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
     toggleMenu: function toggleMenu() {
       this.showMenu = !this.showMenu;
       var nav = $('#nav');
-      nav.scrol;
       var main = $('#main');
 
       if (this.showMenu) {
         $('#menu-icon').removeClass('spin-left').addClass('spin-right');
         main.css('left', '100%');
-        nav.css('right', 0);
+        nav.css('right', '50%');
       } else {
         $('#menu-icon').addClass('spin-right').addClass('spin-left');
         main.css('left', 0);
@@ -2029,7 +2027,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Footer"
+  name: "Footer",
+  mounted: function mounted() {
+    $('#footer-container').width($('#main-container').width() - 10);
+  }
 });
 
 /***/ }),
@@ -2107,8 +2108,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ImageSlider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ImageSlider */ "./resources/js/components/ImageSlider.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_ImageSlider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ImageSlider */ "./resources/js/components/ImageSlider.vue");
+/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Header.vue */ "./resources/js/components/Header.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2138,19 +2140,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'home',
   components: {
-    ImageSlider: _components_ImageSlider__WEBPACK_IMPORTED_MODULE_0__["default"] // agile: VueAgile,
-
+    ImageSlider: _components_ImageSlider__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {},
   data: function data() {
     return {};
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['propertyImages'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['propertyImages'])),
   methods: {
     getImage: function getImage(location) {
       return "/images/".concat(location);
@@ -2233,6 +2237,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2604,8 +2610,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "GroupOverview"
+  name: "GroupOverview",
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2917,6 +2925,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -2962,7 +2972,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _mounted = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var width, id, key, _captchaTries, recaptchaOnload;
+      var width, id, key, size, _captchaTries, recaptchaOnload;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -2975,7 +2985,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if ($('.g-recaptcha').length > 0) {
                   grecaptcha.render("recaptcha", {
                     sitekey: key,
-                    size: 'compact',
+                    size: size,
                     callback: function callback() {
                       console.log('recaptcha callback');
                     }
@@ -3001,10 +3011,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 8:
               $('#overview').html(this.selectedProperty.info.overview);
               key = this.recaptachaTestCredentials.key;
+              size = this.mobile ? 'normal' : 'compact';
               _captchaTries = 0;
               recaptchaOnload();
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
@@ -7683,7 +7694,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "html, body {\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  height: 100%;\n}\n@-webkit-keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@-webkit-keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n@keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  background-color: white;\n  height: 90%;\n}\n#app-container {\n  margin: 0 auto;\n  max-width: 925px;\n  background-color: white;\n  padding: 5px;\n  height: 100%;\n}\n.main-container {\n  display: -webkit-box;\n  display: flex;\n  height: 100%;\n}\n#nav {\n  background-image: -webkit-gradient(linear, left top, right top, from(#444084), to(#040065));\n  background-image: linear-gradient(90deg, #444084, #040065);\n  width: 200px;\n  color: white;\n  vertical-align: top;\n  border-right: 1px solid white;\n  font-weight: bold;\n}\n#main {\n  display: table-cell;\n  /*background-color: #f7f6f1;;*/\n  overflow: auto;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.content-logo {\n  margin-left: 5px;\n}\na, button {\n  text-decoration: none;\n  color: inherit;\n}\nimg {\n  vertical-align: middle;\n}\n#ipic-logo-big img {\n  display: block;\n  height: 50px;\n}\n#ipic-logo-small {\n  display: none;\n}\n.header {\n  border-bottom: 3px solid white;\n  display: -webkit-box;\n  display: flex;\n  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #040065), to(#444084));\n  background-image: linear-gradient(90deg, #040065 40%, #444084);\n}\n.header-logo {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  cursor: pointer;\n}\n.middle-header-container {\n  -webkit-box-flex: 1;\n          flex: 1;\n  background-color: #040065;\n}\n.header-logo-ipic {\n  display: inline-block;\n  border-right: 3px solid white;\n}\n.header-logo-ipic img {\n  height: 60px;\n}\n.nav-logo-group {\n  display: inline-block;\n  -webkit-box-flex: 0.95;\n          flex: 0.95;\n  background-color: #040065;\n}\n.nav-logo-group img {\n  height: 28px;\n  position: relative;\n  left: 16px;\n  top: 19px;\n}\n#menu-button {\n  cursor: pointer;\n  display: none;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  background-color: #040065;\n}\n#menu-button img {\n  height: 20px;\n}\n#menu-icon {\n  display: none;\n  height: 20px;\n  vertical-align: middle;\n  top: 14px;\n  right: 14px;\n  position: absolute;\n}\n.spin-right {\n  -webkit-animation: spin-right 300ms linear;\n          animation: spin-right 300ms linear;\n}\n.spin-left {\n  -webkit-animation: spin-left 300ms linear;\n          animation: spin-left 300ms linear;\n}\n.container {\n  padding: 0 20px 20px 20px;\n  font-size: 14px;\n  background-color: white;\n  height: 100%;\n}\n.content-container {\n  height: 100%;\n  padding: 5px;\n}\n.nav-link-main {\n  cursor: pointer;\n  width: 91%;\n  border-bottom: 1px solid #ede5cb;\n  font-size: 13px;\n  text-transform: uppercase;\n  color: white;\n  position: relative;\n  left: 5%;\n}\n.no-link {\n  cursor: default;\n}\n.nav-container {\n  width: 100%;\n  margin-top: 20px;\n}\n.nav-link-main a {\n  text-decoration: none;\n  color: white;\n}\n.nav-link {\n  cursor: pointer;\n  font-size: 14px;\n  color: white !important;\n  padding-left: 6%;\n  text-decoration: none;\n  display: block;\n}\n.nav-link-main-container {\n  margin: 20px 0 20px 0;\n}\n.links-container {\n  padding-top: 5px;\n}\n.left {\n  float: left;\n}\n.right {\n  float: right;\n}\n.carousel {\n  overflow: hidden;\n  min-width: 100%;\n  width: 0;\n  height: 350px;\n}\n.clear-left {\n  clear: left;\n}\n.clear-right {\n  clear: right;\n}\n.header-with-icon {\n  display: inline-block;\n  margin-right: 5px;\n  margin-bottom: 7px;\n  margin-top: 0;\n}\n.icon {\n  vertical-align: middle;\n}\nh1, h2, h3, h4 {\n  color: darkblue;\n}\n.headings {\n  margin-bottom: 2px;\n}\n.content {\n  margin-top: 0;\n  font-size: 1em;\n}\n.info-wrapper {\n  clear: left;\n}\n@media (max-width: 650px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n#nav {\n    position: absolute;\n    right: 100%;\n    top: 50px;\n    width: 100%;\n    height: 100%;\n    border: none;\n    -webkit-transition: right 0.5s ease-in-out;\n    transition: right 0.5s ease-in-out;\n}\n#main {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    -webkit-transition: left 500ms ease-in-out;\n    transition: left 500ms ease-in-out;\n    top: 50px;\n}\n#app {\n    background: none;\n    padding: 0;\n}\n.nav-link {\n    font-size: 17px;\n    font-weight: 500;\n}\n.header-logo-ipic img {\n    height: 48px;\n}\n.nav-logo-group img {\n    left: 6px;\n    height: 22px;\n    position: relative;\n    top: 3px;\n}\n#menu-icon {\n    display: inline-block;\n}\n.container {\n    font-size: 13px;\n    padding: 0 10px 20px 10px;\n}\n.header {\n    position: fixed;\n    width: 100%;\n    z-index: 1;\n}\n.header-logo {\n    display: block;\n    -webkit-box-flex: 0;\n            flex: none;\n}\n.middle-header-container {\n    display: none;\n}\n.header-logo-ipic {\n    /*border: none;*/\n}\n}", ""]);
+exports.push([module.i, "html, body {\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  height: 100%;\n}\n@-webkit-keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@keyframes spin-right {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n}\n@-webkit-keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n@keyframes spin-left {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(-180deg);\n            transform: rotate(-180deg);\n}\n}\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  background-color: white;\n  height: 100%;\n}\n#app-container {\n  margin: 0 auto;\n  width: 70%;\n  background-color: white;\n  padding: 5px;\n  height: 100%;\n}\n@media (max-width: 768px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n}\n#main-container {\n  display: -webkit-box;\n  display: flex;\n  height: 100%;\n}\n#nav {\n  background-color: #040065;\n  width: 200px;\n  color: white;\n  vertical-align: top;\n  border-right: 1px solid white;\n  font-weight: bold;\n}\n#main {\n  display: table-cell;\n  overflow: auto;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.content-logo {\n  margin-left: 5px;\n}\na, button {\n  text-decoration: none;\n  color: inherit;\n}\nimg {\n  vertical-align: middle;\n}\n#ipic-logo-big img {\n  display: block;\n  height: 50px;\n}\n#ipic-logo-small {\n  display: none;\n}\n.header {\n  border-bottom: 3px solid white;\n  display: -webkit-box;\n  display: flex;\n  /*background-image: linear-gradient(90deg, #040065 40%, #444084);*/\n  background-color: #040065;\n}\n.header-logo {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  cursor: pointer;\n}\n.middle-header-container {\n  -webkit-box-flex: 1;\n          flex: 1;\n  background-color: #040065;\n}\n.header-logo-ipic {\n  display: inline-block;\n  border-right: 3px solid white;\n}\n.header-logo-ipic img {\n  height: 60px;\n}\n.nav-logo-group {\n  display: inline-block;\n  -webkit-box-flex: 0.95;\n          flex: 0.95;\n  background-color: #040065;\n}\n.nav-logo-group img {\n  height: 28px;\n  position: relative;\n  left: 16px;\n  top: 19px;\n}\n#menu-button {\n  cursor: pointer;\n  display: none;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0.1;\n          flex: 0.1;\n  background-color: #040065;\n}\n#menu-button img {\n  height: 20px;\n}\n#menu-icon {\n  display: none;\n  height: 20px;\n  vertical-align: middle;\n  top: 14px;\n  right: 14px;\n  position: absolute;\n}\n#menu-icon-wrapper {\n  height: 100%;\n  display: inline-block;\n}\n.spin-right {\n  -webkit-animation: spin-right 300ms linear;\n          animation: spin-right 300ms linear;\n}\n.spin-left {\n  -webkit-animation: spin-left 300ms linear;\n          animation: spin-left 300ms linear;\n}\n.container {\n  padding: 0 20px 20px 20px;\n  font-size: 14px;\n  background-color: #fbfbfb;\n  height: 100%;\n}\n.content-container {\n  height: 100%;\n  padding: 5px;\n}\n.nav-link-main {\n  cursor: pointer;\n  width: 91%;\n  border-bottom: 1px solid #ede5cb;\n  font-size: 13px;\n  text-transform: uppercase;\n  color: white;\n  position: relative;\n  left: 5%;\n}\n.no-link {\n  cursor: default;\n}\n.nav-container {\n  width: 100%;\n  margin-top: 20px;\n}\n.nav-link-main a {\n  text-decoration: none;\n  color: white;\n}\n.nav-link {\n  cursor: pointer;\n  font-size: 14px;\n  color: white !important;\n  padding-left: 6%;\n  text-decoration: none;\n  display: block;\n}\n.nav-link-main-container {\n  margin: 20px 0 20px 0;\n}\n.links-container {\n  padding-top: 5px;\n}\n.left {\n  float: left;\n}\n.right {\n  float: right;\n}\n.carousel {\n  overflow: hidden;\n  min-width: 100%;\n  width: 0;\n  height: 350px;\n}\n.clear-left {\n  clear: left;\n}\n.clear-right {\n  clear: right;\n}\n.header-with-icon {\n  display: inline-block;\n  margin-right: 5px;\n  margin-bottom: 7px;\n  margin-top: 0;\n}\n.icon {\n  vertical-align: middle;\n}\nh1, h2, h3, h4 {\n  color: darkblue;\n}\n.headings {\n  margin-bottom: 2px;\n}\n.content {\n  margin-top: 0;\n  font-size: 1em;\n}\n.info-wrapper {\n  clear: left;\n}\n.bottom-space {\n  height: 10%;\n}\n@media (max-width: 650px) {\n#app-container {\n    width: 100%;\n    padding: 0;\n}\n#nav {\n    position: fixed;\n    right: 100%;\n    top: 50px;\n    width: 50%;\n    height: 100%;\n    border: none;\n    -webkit-transition: right 0.5s ease-in-out;\n    transition: right 0.5s ease-in-out;\n}\n#main {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    -webkit-transition: left 500ms ease-in-out;\n    transition: left 500ms ease-in-out;\n    top: 51px;\n}\n#app {\n    background: none;\n    padding: 0;\n}\n.nav-link {\n    font-size: 17px;\n    font-weight: 500;\n}\n.header-logo-ipic img {\n    height: 48px;\n}\n.nav-logo-group img {\n    left: 6px;\n    height: 22px;\n    position: relative;\n    top: 3px;\n}\n#menu-icon {\n    display: inline-block;\n}\n.container {\n    font-size: 13px;\n    padding: 0 10px 20px 10px;\n}\n.header {\n    position: fixed;\n    width: 100%;\n    z-index: 1;\n}\n.header-logo {\n    display: block;\n    -webkit-box-flex: 0;\n            flex: none;\n}\n.middle-header-container {\n    display: none;\n}\n.header-logo-ipic {\n    /*border: none;*/\n}\n}", ""]);
 
 // exports
 
@@ -7702,7 +7713,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".footer-container[data-v-61a7c374] {\n  background-color: #050065;\n  color: white;\n  height: 20px;\n  line-height: 20px;\n  font-size: 10px;\n  padding: 0px 5px 0 5px;\n  border-top: 1px solid white;\n}\n.terms-link[data-v-61a7c374] {\n  cursor: pointer;\n}\n@media (max-width: 650px) {\n.footer-container[data-v-61a7c374] {\n    position: fixed;\n    bottom: 0;\n    width: 98vw;\n}\n}", ""]);
+exports.push([module.i, "#footer-container[data-v-61a7c374] {\n  background-color: #050065;\n  color: white;\n  height: 23px;\n  line-height: 23px;\n  font-size: 10px;\n  padding: 0 5px 0 5px;\n  border-top: 1px solid white;\n  position: fixed;\n  bottom: 0;\n  border-bottom: 1px solid white;\n}\n.terms-link[data-v-61a7c374] {\n  cursor: pointer;\n}\n@media (max-width: 650px) {\n.footer-container[data-v-61a7c374] {\n    position: fixed;\n    bottom: 0;\n    width: 98vw;\n}\n}", ""]);
 
 // exports
 
@@ -7740,7 +7751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".home {\n  height: 100%;\n}\n.buttons {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  color: white;\n  border-top: 1px solid white;\n  border-bottom: 1px solid white;\n}\n.home-button {\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  padding: 10px 5px 10px 5px;\n  width: 30%;\n  text-align: center;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#040065), to(#49458F));\n  background-image: linear-gradient(0deg, #040065, #49458F);\n  text-decoration: none;\n  color: white;\n}\n.middle-home-button {\n  border-left: 1px solid white;\n  border-right: 1px solid white;\n}\n.home-button-title {\n  font-size: 1em;\n  font-weight: bold;\n}\n.home-button-description {\n  font-style: italic;\n  font-size: 0.6em;\n  margin: 0;\n}\n.content-fill {\n  height: 100%;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #040065), to(#49458F));\n  background-image: linear-gradient(0deg, #040065 50%, #49458F);\n}", ""]);
+exports.push([module.i, ".home {\n  height: 100%;\n}\n.buttons {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  color: white;\n  border-top: 1px solid white;\n  border-bottom: 1px solid white;\n}\n.home-button {\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  padding: 10px 5px 10px 5px;\n  width: 30%;\n  text-align: center;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#040065), to(#49458F));\n  background-image: linear-gradient(0deg, #040065, #49458F);\n  text-decoration: none;\n  color: white;\n}\n.middle-home-button {\n  border-left: 1px solid white;\n  border-right: 1px solid white;\n}\n.home-button-title {\n  font-size: 1em;\n  font-weight: bold;\n}\n.home-button-description {\n  font-style: italic;\n  font-size: 0.6em;\n  margin: 0;\n}\n.content-fill {\n  height: 100%;\n  background-color: #040065;\n}\n@media (max-width: 650px) {\n.content-fill {\n    height: 50%;\n}\n}", ""]);
 
 // exports
 
@@ -7778,7 +7789,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#main-wrapper[data-v-b9c20fb8] {\n  height: 100%;\n}", ""]);
 
 // exports
 
@@ -7797,7 +7808,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-420b99cf] {\n  width: 100%;\n  height: 50%;\n  padding-top: 15px;\n}\ninput[data-v-420b99cf], textarea[data-v-420b99cf] {\n  font-family: inherit;\n}\ntextarea[data-v-420b99cf] {\n  resize: vertical;\n}\n.align-left[data-v-420b99cf] {\n  text-align: left;\n  padding-left: 5px;\n  width: 35%;\n}\n.align-right[data-v-420b99cf] {\n  text-align: right;\n  width: 15%;\n  font-weight: bold;\n}\n.select-css[data-v-420b99cf] {\n  font-weight: 100;\n  display: block;\n  font-size: 16px;\n  color: #444;\n  padding-left: 8px;\n  height: 35px;\n  width: 300px;\n  box-sizing: border-box;\n  border: 1px solid #cccccc;\n  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);\n  border-radius: 5px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-color: #fff;\n  background-repeat: no-repeat, repeat;\n  background-position: right 0.7em top 50%, 0 0;\n  background-size: 0.65em auto, 100%;\n}\n.select-css[data-v-420b99cf]::-ms-expand {\n  display: none;\n}\n.select-css[data-v-420b99cf]:hover {\n  border-color: #888;\n}\n.select-css[data-v-420b99cf]:focus {\n  border-color: #aaa;\n  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);\n  color: #222;\n  outline: none;\n}\n.select-css option[data-v-420b99cf] {\n  font-weight: normal;\n}\n.session-input[data-v-420b99cf] {\n  width: 300px;\n  height: 31px;\n  padding-left: 8px;\n  border-radius: 5px;\n  font-size: 16px;\n  border: 1px solid #cccccc;\n  color: #444;\n}\n.message-label[data-v-420b99cf] {\n  vertical-align: top;\n}\n.message-container[data-v-420b99cf] {\n  min-width: 300px;\n  max-width: 300px;\n  font-size: 16px;\n  min-height: 90px;\n  border-radius: 5px;\n  border: 1px solid #cccccc;\n  padding: 8px;\n  font-weight: 100;\n  color: #444;\n}\n.contact-input-table[data-v-420b99cf] {\n  margin: 0 auto;\n  padding-top: 20px;\n  width: 80%;\n}\n.email-button[data-v-420b99cf] {\n  font-size: 15px;\n  width: 300px;\n  background-color: #2b981e;\n  color: white;\n  height: 35px;\n  border-radius: 5px;\n}\n.table-container[data-v-420b99cf] {\n  margin: 0 auto;\n  width: 100%;\n}\n@media (max-width: 650px) {\n.select-css[data-v-420b99cf] {\n    width: 85.5%;\n}\n.session-input[data-v-420b99cf] {\n    width: 85.5%;\n}\n.message-container[data-v-420b99cf] {\n    min-width: 85.5%;\n    max-width: 85.5%;\n}\n.email-button[data-v-420b99cf] {\n    width: 85.5%;\n}\n.contact-input-table[data-v-420b99cf] {\n    width: 100%;\n}\n.align-right[data-v-420b99cf] {\n    width: 10%;\n}\n}", ""]);
+exports.push([module.i, "img[data-v-420b99cf] {\n  width: 100%;\n  height: 50%;\n  padding-top: 15px;\n}\ninput[data-v-420b99cf], textarea[data-v-420b99cf] {\n  font-family: inherit;\n}\ntextarea[data-v-420b99cf] {\n  resize: vertical;\n}\n.align-left[data-v-420b99cf] {\n  text-align: left;\n  padding-left: 5px;\n  width: 35%;\n}\n.align-right[data-v-420b99cf] {\n  text-align: right;\n  width: 15%;\n  font-weight: bold;\n}\n.select-css[data-v-420b99cf] {\n  font-weight: 100;\n  display: block;\n  font-size: 16px;\n  color: #444;\n  padding-left: 8px;\n  height: 35px;\n  width: 300px;\n  box-sizing: border-box;\n  border: 1px solid #cccccc;\n  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);\n  border-radius: 5px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-color: #fff;\n  background-repeat: no-repeat, repeat;\n  background-position: right 0.7em top 50%, 0 0;\n  background-size: 0.65em auto, 100%;\n}\n.select-css[data-v-420b99cf]::-ms-expand {\n  display: none;\n}\n.select-css[data-v-420b99cf]:hover {\n  border-color: #888;\n}\n.select-css[data-v-420b99cf]:focus {\n  border-color: #aaa;\n  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);\n  color: #222;\n  outline: none;\n}\n.select-css option[data-v-420b99cf] {\n  font-weight: normal;\n}\n.session-input[data-v-420b99cf] {\n  width: 300px;\n  height: 31px;\n  padding-left: 8px;\n  border-radius: 5px;\n  font-size: 16px;\n  border: 1px solid #cccccc;\n  color: #444;\n}\n.message-label[data-v-420b99cf] {\n  vertical-align: top;\n}\n.message-container[data-v-420b99cf] {\n  min-width: 300px;\n  max-width: 300px;\n  font-size: 16px;\n  min-height: 90px;\n  border-radius: 5px;\n  border: 1px solid #cccccc;\n  padding: 8px;\n  font-weight: 100;\n  color: #444;\n}\n.contact-input-table[data-v-420b99cf] {\n  margin: 0 auto;\n  padding-top: 20px;\n  width: 80%;\n}\n.email-button[data-v-420b99cf] {\n  font-size: 15px;\n  width: 300px;\n  background-color: #2b981e;\n  color: white;\n  height: 35px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.table-container[data-v-420b99cf] {\n  margin: 0 auto;\n  width: 100%;\n}\n@media (max-width: 650px) {\n.select-css[data-v-420b99cf] {\n    width: 85.5%;\n}\n.session-input[data-v-420b99cf] {\n    width: 85.5%;\n}\n.message-container[data-v-420b99cf] {\n    min-width: 85.5%;\n    max-width: 85.5%;\n}\n.email-button[data-v-420b99cf] {\n    width: 85.5%;\n}\n.contact-input-table[data-v-420b99cf] {\n    width: 100%;\n}\n.align-right[data-v-420b99cf] {\n    width: 10%;\n}\n}", ""]);
 
 // exports
 
@@ -7835,7 +7846,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#overview[data-v-1790ef74] {\n  margin-top: 20px;\n}\n.table[data-v-1790ef74] {\n  width: 60%;\n  font-size: 12px;\n  display: inline-block;\n}\n.sk-spinner[data-v-1790ef74] {\n  height: 30px;\n}\n.sk-spinner div[data-v-1790ef74] {\n  height: 30px;\n}\n.spinner-text[data-v-1790ef74] {\n  margin-top: 10px;\n  text-align: center;\n  font-size: 16px;\n}\n.google-map-container[data-v-1790ef74] {\n  /*position: sticky;*/\n  padding-top: 10px;\n}\n.google-map[data-v-1790ef74] {\n  width: 100%;\n  height: 200px;\n}\n.info-box[data-v-1790ef74] {\n  display: inline-block;\n  width: 30%;\n  border: 1px solid grey;\n  background-color: #fff9e9;\n  padding: 0 5px 5px 5px;\n  font-size: 12px;\n  border-radius: 10px;\n}\n.bottom-container[data-v-1790ef74] {\n  width: 100%;\n  margin-top: 20px;\n  margin-bottom: 10px;\n}\n.h-address-margin[data-v-1790ef74] {\n  margin-bottom: 0;\n  margin-top: 5px;\n}\n.h-trading-margin[data-v-1790ef74] {\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n.h-tenants[data-v-1790ef74] {\n  margin-top: 0;\n}\n.h-emergency[data-v-1790ef74] {\n  color: #d30707;\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n.h-emergency a[data-v-1790ef74] {\n  text-decoration: underline;\n  color: #040065;\n}\n.h-enquiries[data-v-1790ef74] {\n  margin-top: 5px;\n}\n.contact-number[data-v-1790ef74], .tenant-url[data-v-1790ef74] {\n  text-decoration: underline;\n  color: #040065;\n}\ninput[data-v-1790ef74], textarea[data-v-1790ef74] {\n  font-family: inherit;\n}\ntextarea[data-v-1790ef74] {\n  resize: vertical;\n}\n.align-left[data-v-1790ef74] {\n  text-align: left;\n  padding-left: 5px;\n  width: 35%;\n}\n.align-right[data-v-1790ef74] {\n  text-align: right;\n  width: 15%;\n  font-weight: bold;\n}\n.enquiry-select-css[data-v-1790ef74] {\n  font-weight: 100;\n  display: block;\n  font-size: 14px;\n  color: #444;\n  padding-left: 8px;\n  height: 30px;\n  width: 100%;\n  margin-bottom: 3px;\n  box-sizing: border-box;\n  border: 1px solid #cccccc;\n  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);\n  border-radius: 5px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-color: #fff;\n  background-repeat: no-repeat, repeat;\n  background-position: right 0.7em top 50%, 0 0;\n  background-size: 0.65em auto, 100%;\n}\n.enquiry-select-css[data-v-1790ef74]::-ms-expand {\n  display: none;\n}\n.enquiry-select-css[data-v-1790ef74]:hover {\n  border-color: #888;\n}\n.enquiry-select-css[data-v-1790ef74]:focus {\n  border-color: #aaa;\n  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);\n  color: #222;\n  outline: none;\n}\n.enquiry-select-css option[data-v-1790ef74] {\n  font-weight: normal;\n}\n.enquiry-input[data-v-1790ef74] {\n  width: 100%;\n  height: 30px;\n  padding-left: 8px;\n  border-radius: 5px;\n  font-size: 14px;\n  border: 1px solid #cccccc;\n  color: #444;\n  margin-bottom: 3px;\n}\n.enquiry-message-label[data-v-1790ef74] {\n  vertical-align: top;\n}\n.enquiry-message-container[data-v-1790ef74] {\n  min-width: 100%;\n  max-width: 100%;\n  font-size: 14px;\n  min-height: 90px;\n  border-radius: 5px;\n  border: 1px solid #cccccc;\n  padding: 8px;\n  font-weight: 100;\n  color: #444;\n  margin-top: 10px;\n  margin-bottom: 7px;\n}\n.enquiry-input-table[data-v-1790ef74] {\n  margin: 0 auto;\n  padding-top: 20px;\n  width: 80%;\n}\n.enquiry-email-button[data-v-1790ef74] {\n  font-size: 15px;\n  width: 100%;\n  background-color: #2b981e;\n  color: white;\n  height: 35px;\n  border-radius: 5px;\n}\n.enquiry-table-container[data-v-1790ef74] {\n  margin: 0 auto;\n  width: 100%;\n}\n.enquiries[data-v-1790ef74] {\n  font-size: 12px;\n  width: 38%;\n}\n#recaptcha[data-v-1790ef74] {\n  width: 100%;\n}\n@media (max-width: 650px) {\n.table[data-v-1790ef74] {\n    width: 100%;\n    font-size: 10px;\n}\n.datatable__column-icon[data-v-1790ef74] {\n    top: 4px !important;\n}\n.enquiry-message-container[data-v-1790ef74] {\n    min-width: 100%;\n    max-width: 100%;\n}\n.email-button[data-v-1790ef74] {\n    width: 90%;\n}\n.enquiry-input-table[data-v-1790ef74] {\n    width: 100%;\n}\n.enquiries[data-v-1790ef74] {\n    width: 100%;\n    display: block;\n    margin-top: 10px;\n}\n.info-box[data-v-1790ef74] {\n    display: block;\n    width: 100%;\n    margin-bottom: 10px;\n}\n.info-wrapper[data-v-1790ef74] {\n    clear: none;\n}\n.address-trading-info[data-v-1790ef74] {\n    float: left;\n    width: 40%;\n}\n.google-map[data-v-1790ef74] {\n    float: right;\n    width: 60%;\n    height: 185px;\n    position: relative;\n    display: inline-block;\n    border-radius: 10px !important;\n}\n.google-map-container[data-v-1790ef74] {\n    padding-top: 10px;\n    display: inline;\n    position: relative;\n    top: 6px;\n    border-radius: 10px !important;\n}\n.vue-map-container .vue-map[data-v-1790ef74] {\n    border-radius: 10px !important;\n}\n.h-emergency[data-v-1790ef74] {\n    float: left;\n}\n}", ""]);
+exports.push([module.i, "#overview[data-v-1790ef74] {\n  margin-top: 20px;\n}\n.table[data-v-1790ef74] {\n  width: 60%;\n  font-size: 12px;\n  display: inline-block;\n}\n.sk-spinner[data-v-1790ef74] {\n  height: 30px;\n}\n.sk-spinner div[data-v-1790ef74] {\n  height: 30px;\n}\n.spinner-text[data-v-1790ef74] {\n  margin-top: 10px;\n  text-align: center;\n  font-size: 16px;\n}\n.google-map-container[data-v-1790ef74] {\n  padding-top: 10px;\n}\n.google-map[data-v-1790ef74] {\n  width: 100%;\n  height: 200px;\n}\n.info-box[data-v-1790ef74] {\n  display: inline-block;\n  width: 30%;\n  border: 1px solid grey;\n  background-color: #fff9e9;\n  padding: 0 5px 5px 5px;\n  font-size: 12px;\n  border-radius: 10px;\n}\n.bottom-container[data-v-1790ef74] {\n  width: 100%;\n  margin-top: 20px;\n  margin-bottom: 10px;\n}\n.h-address-margin[data-v-1790ef74] {\n  margin-bottom: 0;\n  margin-top: 5px;\n}\n.h-trading-margin[data-v-1790ef74] {\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n.h-tenants[data-v-1790ef74] {\n  margin-top: 0;\n}\n.h-emergency[data-v-1790ef74] {\n  color: #d30707;\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n.h-emergency-link[data-v-1790ef74] {\n  text-decoration: underline !important;\n  color: #040065 !important;\n}\n.h-enquiries[data-v-1790ef74] {\n  margin-top: 5px;\n}\n.contact-number[data-v-1790ef74], .tenant-url[data-v-1790ef74] {\n  text-decoration: underline;\n  color: #040065;\n}\ninput[data-v-1790ef74], textarea[data-v-1790ef74] {\n  font-family: inherit;\n}\ntextarea[data-v-1790ef74] {\n  resize: vertical;\n}\n.align-left[data-v-1790ef74] {\n  text-align: left;\n  padding-left: 5px;\n  width: 35%;\n}\n.align-right[data-v-1790ef74] {\n  text-align: right;\n  width: 15%;\n  font-weight: bold;\n}\n.enquiry-select-css[data-v-1790ef74] {\n  font-weight: 100;\n  display: block;\n  font-size: 14px;\n  color: #444;\n  padding-left: 8px;\n  height: 30px;\n  width: 100%;\n  margin-bottom: 3px;\n  box-sizing: border-box;\n  border: 1px solid #cccccc;\n  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);\n  border-radius: 5px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-color: #fff;\n  background-repeat: no-repeat, repeat;\n  background-position: right 0.7em top 50%, 0 0;\n  background-size: 0.65em auto, 100%;\n}\n.enquiry-select-css[data-v-1790ef74]::-ms-expand {\n  display: none;\n}\n.enquiry-select-css[data-v-1790ef74]:hover {\n  border-color: #888;\n}\n.enquiry-select-css[data-v-1790ef74]:focus {\n  border-color: #aaa;\n  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);\n  color: #222;\n  outline: none;\n}\n.enquiry-select-css option[data-v-1790ef74] {\n  font-weight: normal;\n}\n.enquiry-input[data-v-1790ef74] {\n  width: 100%;\n  height: 30px;\n  padding-left: 8px;\n  border-radius: 5px;\n  font-size: 14px;\n  border: 1px solid #cccccc;\n  color: #444;\n  margin-bottom: 3px;\n}\n.enquiry-message-label[data-v-1790ef74] {\n  vertical-align: top;\n}\n.enquiry-message-container[data-v-1790ef74] {\n  min-width: 100%;\n  max-width: 100%;\n  font-size: 14px;\n  min-height: 90px;\n  border-radius: 5px;\n  border: 1px solid #cccccc;\n  padding: 8px;\n  font-weight: 100;\n  color: #444;\n  margin-top: 10px;\n  margin-bottom: 7px;\n}\n.enquiry-input-table[data-v-1790ef74] {\n  margin: 0 auto;\n  padding-top: 20px;\n  width: 80%;\n}\n.enquiry-email-button[data-v-1790ef74] {\n  font-size: 15px;\n  width: 100%;\n  background-color: #2b981e;\n  color: white;\n  height: 35px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.enquiry-table-container[data-v-1790ef74] {\n  margin: 0 auto;\n  width: 100%;\n}\n.enquiries[data-v-1790ef74] {\n  font-size: 12px;\n  width: 38%;\n}\n#recaptcha[data-v-1790ef74] {\n  width: 100%;\n}\n.bottom-space[data-v-1790ef74] {\n  height: 50px;\n}\n@media (max-width: 650px) {\n.table[data-v-1790ef74] {\n    width: 100%;\n    font-size: 10px;\n}\n.datatable__column-icon[data-v-1790ef74] {\n    top: 4px !important;\n}\n.enquiry-message-container[data-v-1790ef74] {\n    min-width: 100%;\n    max-width: 100%;\n}\n.email-button[data-v-1790ef74] {\n    width: 90%;\n}\n.enquiry-input-table[data-v-1790ef74] {\n    width: 100%;\n}\n.enquiries[data-v-1790ef74] {\n    width: 100%;\n    display: block;\n    margin-top: 10px;\n}\n.info-box[data-v-1790ef74] {\n    display: block;\n    width: 100%;\n    margin-bottom: 10%;\n}\n.info-wrapper[data-v-1790ef74] {\n    clear: none;\n}\n.address-trading-info[data-v-1790ef74] {\n    float: left;\n    width: 40%;\n}\n.google-map[data-v-1790ef74] {\n    float: right;\n    width: 60%;\n    height: 185px;\n    position: relative;\n    display: inline-block;\n    border-radius: 10px !important;\n}\n.google-map-container[data-v-1790ef74] {\n    padding-top: 10px;\n    display: inline;\n    position: relative;\n    top: 6px;\n    border-radius: 10px !important;\n}\n.vue-map-container .vue-map[data-v-1790ef74] {\n    border-radius: 10px !important;\n}\n.h-emergency[data-v-1790ef74] {\n    float: left;\n}\n}", ""]);
 
 // exports
 
@@ -42209,174 +42220,168 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app-container" } }, [
-    _c("div", { staticClass: "header" }, [
-      _c(
-        "div",
-        {
-          staticClass: "header-logo",
+  return _c(
+    "div",
+    { attrs: { id: "app-container" } },
+    [
+      _c("div", { staticClass: "header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "header-logo",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.navigate("/")
+              }
+            }
+          },
+          [_vm._m(0), _vm._v(" "), _vm._m(1)]
+        ),
+        _vm._v(" "),
+        _c("img", {
+          attrs: { id: "menu-icon", src: "/images/menu-button.png" },
           on: {
             click: function($event) {
               $event.preventDefault()
-              return _vm.navigate("/")
+              return _vm.toggleMenu($event)
             }
           }
-        },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
-      ),
+        })
+      ]),
       _vm._v(" "),
-      _c("img", {
-        attrs: { id: "menu-icon", src: "/images/menu-button.png" },
-        on: {
-          click: function($event) {
-            $event.preventDefault()
-            return _vm.toggleMenu($event)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "main-container" }, [
-      _c("div", { attrs: { id: "nav" } }, [
-        _c("div", { staticClass: "nav-container" }, [
-          _c("div", { staticClass: "nav-link-main-container" }, [
-            _c("div", { staticClass: "nav-link-main" }, [
+      _c("div", { attrs: { id: "main-container" } }, [
+        _c("div", { attrs: { id: "nav" } }, [
+          _c("div", { staticClass: "nav-container" }, [
+            _c("div", { staticClass: "nav-link-main-container" }, [
+              _c("div", { staticClass: "nav-link-main" }, [
+                _c(
+                  "div",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/overview")
+                      }
+                    }
+                  },
+                  [_vm._v("group overview")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "nav-link-main-container" }, [
+              _c("div", { staticClass: "nav-link-main" }, [
+                _c(
+                  "div",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/investments")
+                      }
+                    }
+                  },
+                  [_vm._v("Investments")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "links-container" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "nav-link",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/properties")
+                      }
+                    }
+                  },
+                  [_vm._v("Properties")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "nav-link",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/asset-management")
+                      }
+                    }
+                  },
+                  [_vm._v("Asset Management")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "nav-link-main-container" }, [
               _c(
                 "div",
                 {
+                  staticClass: "nav-link-main",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.navigate("/overview")
+                      return _vm.navigate("/charity")
                     }
                   }
                 },
-                [_vm._v("group overview")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "nav-link-main-container" }, [
-            _c("div", { staticClass: "nav-link-main" }, [
-              _c(
-                "div",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.navigate("/investments")
-                    }
-                  }
-                },
-                [_vm._v("Investments")]
+                [
+                  _vm._v(
+                    "\n                            Ipic Help\n                        "
+                  )
+                ]
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "links-container" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "nav-link",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.navigate("/properties")
-                    }
-                  }
-                },
-                [_vm._v("Properties")]
-              ),
+            _c("div", { staticClass: "nav-link-main-container" }, [
+              _vm._m(3),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "nav-link",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.navigate("/asset-management")
+              _c("div", { staticClass: "links-container" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "nav-link",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/contact")
+                      }
                     }
-                  }
-                },
-                [_vm._v("Asset Management")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "nav-link-main-container" }, [
-            _c(
-              "div",
-              {
-                staticClass: "nav-link-main",
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.navigate("/charity")
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                            Ipic Help\n                        "
+                  },
+                  [_vm._v("Get In Touch")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "nav-link",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.navigate("/careers")
+                      }
+                    }
+                  },
+                  [_vm._v("Careers")]
                 )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "nav-link-main-container" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "links-container" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "nav-link",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.navigate("/careers")
-                    }
-                  }
-                },
-                [_vm._v("Careers at Ipic")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "nav-link",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.navigate("/contact")
-                    }
-                  }
-                },
-                [_vm._v("Contact Us")]
-              )
+              ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "main" } }, [_c("Main")], 1)
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { id: "main" } },
-        [
-          _c("Header"),
-          _vm._v(" "),
-          _c("Main"),
-          _vm._v(" "),
-          _vm.mobile ? _c("div", [_c("Footer")], 1) : _vm._e()
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    !_vm.mobile ? _c("div", [_c("Footer")], 1) : _vm._e()
-  ])
+      _c("Footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -42460,8 +42465,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "nav-link-main" }, [
-      _c("a", { attrs: { href: "company_profile.php" } }, [_vm._v("About Us")])
+    return _c("div", { staticClass: "nav-link-main no-link" }, [
+      _c("div", [_vm._v("Contact Us")])
     ])
   }
 ]
@@ -42488,7 +42493,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "footer-container" },
+    { attrs: { id: "footer-container" } },
     [
       _c(
         "router-link",
@@ -42596,6 +42601,8 @@ var render = function() {
     "div",
     { staticClass: "home" },
     [
+      _c("Header"),
+      _vm._v(" "),
       _c("ImageSlider", {
         attrs: { "get-image": _vm.getImage, images: _vm.propertyImages.all }
       }),
@@ -42789,7 +42796,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c("div", { attrs: { id: "main-wrapper" } }, [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43440,7 +43447,9 @@ var staticRenderFns = [
         _vm._v(", and "),
         _c("b", [_vm._v("Ipic Help")]),
         _vm._v(".\n    ")
-      ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "bottom-space" })
     ])
   }
 ]
@@ -43740,7 +43749,9 @@ var render = function() {
       _vm._v(
         "Register as a broker and earn commission when we purchase one of your client’s properties. Ipic Properties will enter negotiations with owners of retail centres which achieve a Net Operating Income of at least R12m per annum."
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bottom-space" })
   ])
 }
 var staticRenderFns = [
@@ -43891,6 +43902,7 @@ var render = function() {
                       _c(
                         "a",
                         {
+                          staticClass: "h-emergency-link",
                           attrs: {
                             href:
                               "tel:" +
@@ -43951,6 +43963,7 @@ var render = function() {
                     _c(
                       "a",
                       {
+                        staticClass: "h-emergency-link",
                         attrs: {
                           href:
                             "tel:" + _vm.selectedProperty.info.emergency_number
@@ -44286,7 +44299,9 @@ var render = function() {
                     ])
                   ])
                 ])
-              ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "bottom-space" })
             ])
           ])
         : _vm._e()
@@ -44633,7 +44648,9 @@ var staticRenderFns = [
         _vm._v(
           "13.1 Ipic (Pty) Ltd chooses as its domicilium citandi et executandi for all purposes under this agreement, whether in respect of court process, notice, or other documents or communication of whatsoever nature, 2nd Floor, Selective House, Cnr. Of Edward & Oakdale Street, Tygervalley, 7530, South Africa."
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "bottom-space" })
     ])
   }
 ]

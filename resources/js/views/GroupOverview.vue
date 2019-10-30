@@ -36,12 +36,16 @@
         <p>
             The three main divisions of Ipic Group now comprises of <b>Ipic Investments</b>, <b>Ipic Active</b>, and <b>Ipic Help</b>.
         </p>
+        <div class="bottom-space"></div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "GroupOverview"
+        name: "GroupOverview",
+        mounted() {
+
+        }
     }
 </script>
 

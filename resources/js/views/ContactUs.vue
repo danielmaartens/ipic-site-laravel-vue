@@ -318,7 +318,7 @@
         color: white;
         height: 35px;
         border-radius: 5px;
-
+        margin-top: 5px;
     }
 
     .table-container {

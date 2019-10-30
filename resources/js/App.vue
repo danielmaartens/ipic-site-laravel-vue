@@ -11,6 +11,9 @@
                     <img src="/images/logos/nav_logo_group.png"/>
 
                 </div>
+<!--                <div id="menu-icon-wrapper">-->
+<!--                <img id="menu-icon" @click.prevent="toggleMenu" src="/images/menu-button.png"/>-->
+<!--                </div>-->
             </div>
             <img id="menu-icon" @click.prevent="toggleMenu" src="/images/menu-button.png"/>
 <!--            <div class="middle-header-container"></div>-->
@@ -19,7 +22,7 @@
 
         </div>
 
-        <div class="main-container">
+        <div id="main-container">
             <div id="nav">
 
                 <div class="nav-container">
@@ -58,31 +61,30 @@
                         </div>
                     </div>
                     <div class="nav-link-main-container">
-                        <div class="nav-link-main">
-                            <a href="company_profile.php">About Us</a>
+                        <div class="nav-link-main no-link">
+                            <div>Contact Us</div>
                         </div>
                         <div class="links-container">
-                            <div class="nav-link" @click.prevent="navigate('/careers')">Careers at Ipic</div>
-                            <div class="nav-link" @click.prevent="navigate('/contact')">Contact Us</div>
+                            <div class="nav-link" @click.prevent="navigate('/contact')">Get In Touch</div>
+                            <div class="nav-link" @click.prevent="navigate('/careers')">Careers</div>
                         </div>
                     </div>
                 </div>
 
             </div>
             <div id="main">
-                <Header/>
                 <Main/>
 
-                <div v-if="mobile">
-                    <Footer/>
-                </div>
+<!--                <div v-if="mobile">-->
+<!--                    <Footer/>-->
+<!--                </div>-->
 
             </div>
 
         </div>
-        <div v-if="!mobile">
+
             <Footer/>
-        </div>
+
     </div>
 </template>
 
@@ -90,7 +92,6 @@
     // @ is an alias to /src
     import * as VueGoogleMaps from 'vue2-google-maps';
     import Main from '@/components/Main.vue';
-    import Header from '@/components/Header.vue';
     import Footer from '@/components/Footer.vue';
 
     Vue.use(VueGoogleMaps, {
@@ -104,7 +105,6 @@
         name: 'app',
         components: {
             Main,
-            Header,
             Footer,
         },
         mounted() {
@@ -119,6 +119,7 @@
 
             if (width <= 650) {
                 this.mobile = true;
+                // $('#nav').width(width);
             }
 
         },
@@ -133,13 +134,12 @@
                 this.showMenu = !this.showMenu;
 
                 const nav = $('#nav');
-                nav.scrol
                 const main = $('#main');
 
                 if (this.showMenu) {
                     $('#menu-icon').removeClass('spin-left').addClass('spin-right');
                     main.css('left', '100%');
-                    nav.css('right', 0);
+                    nav.css('right', '50%');
                 } else {
                     $('#menu-icon').addClass('spin-right').addClass('spin-left');
                     main.css('left', 0);
@@ -197,24 +197,30 @@
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
         background-color: white;
-        height: 90%;
+        height: 100%;
     }
 
     #app-container {
         margin: 0 auto;
-        max-width: 925px;
+        width: 70%;
         background-color: white;
         padding: 5px;
         height: 100%;
+
+        @media (max-width: 768px) {
+                width: 100%;
+                padding: 0;
+        }
     }
 
-    .main-container {
+    #main-container {
         display: flex;
         height: 100%;
     }
 
     #nav {
-        background-image: linear-gradient(90deg, #444084, #040065);
+        // background-image: linear-gradient(-90deg, #040065, #444084);
+        background-color:  #040065;
         width: 200px;
         color: white;
         vertical-align: top;
@@ -224,7 +230,6 @@
 
     #main {
         display: table-cell;
-        /*background-color: #f7f6f1;;*/
         overflow: auto;
         flex: 1;
     }
@@ -248,7 +253,6 @@
             display: block;
             height: 50px;
         }
-
     }
 
     #ipic-logo-small {
@@ -258,7 +262,8 @@
     .header {
         border-bottom: 3px solid white;
         display: flex;
-        background-image: linear-gradient(90deg, #040065 40%, #444084);
+        /*background-image: linear-gradient(90deg, #040065 40%, #444084);*/
+        background-color:  #040065;
 
         &-logo {
             display: flex;
@@ -316,6 +321,11 @@
         position: absolute;
     }
 
+    #menu-icon-wrapper {
+        height: 100%;
+        display: inline-block;
+    }
+
     .spin-right {
         animation: spin-right 300ms linear;
     }
@@ -331,7 +341,7 @@
     .container {
         padding: 0 20px 20px 20px;
         font-size: 14px;
-        background-color: white;
+        background-color: #fbfbfb;
         height: 100%;
     }
 
@@ -434,6 +444,10 @@
         clear: left;
     }
 
+    .bottom-space {
+        height: 10%;
+    }
+
     @media (max-width: 650px) {
 
         #app-container {
@@ -442,10 +456,10 @@
         }
 
         #nav {
-            position: absolute;
+            position: fixed;
             right: 100%;
             top: 50px;
-            width: 100%;
+            width: 50%;
             height: 100%;
             border: none;
             transition: right 0.5s ease-in-out;
@@ -457,7 +471,7 @@
             height: 100%;
             left: 0;
             transition: left 500ms ease-in-out;
-            top: 50px;
+            top: 51px;
         }
 
         #app {

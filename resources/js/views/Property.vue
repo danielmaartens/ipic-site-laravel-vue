@@ -22,7 +22,7 @@
                 <div>South Africa</div>
                     <div v-if="mobile">
                         <h4 class="h-emergency">Emergency Contact</h4>
-                        <a :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
+                        <a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
 
                 <div v-if="!mobile">
                 <h4 class="h-emergency">Emergency Contact</h4>
-                <a :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
+                <a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
                 </div>
             </div>
 
@@ -137,9 +137,11 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="bottom-space"></div>
             </div>
+
         </div>
+
         </div>
     </div>
 </template>
@@ -208,6 +210,7 @@
             $('#overview').html(this.selectedProperty.info.overview);
 
             const key = this.recaptachaTestCredentials.key;
+            const size = this.mobile ? 'normal' : 'compact';
 
             let _captchaTries = 0;
             function recaptchaOnload() {
@@ -217,7 +220,7 @@
                 if ($('.g-recaptcha').length > 0) {
                     grecaptcha.render("recaptcha", {
                         sitekey: key,
-                        size: 'compact',
+                        size: size,
                         callback: function() {
                             console.log('recaptcha callback');
                         }
@@ -292,7 +295,6 @@
     }
 
     .google-map-container {
-        /*position: sticky;*/
         padding-top: 10px;
     }
 
@@ -341,9 +343,9 @@
             margin-top: 5px;
             margin-bottom: 0;
 
-            a {
-                text-decoration: underline;
-                color: #040065;
+            &-link {
+                text-decoration: underline !important;
+                color: #040065 !important;
             }
         }
 
@@ -459,7 +461,7 @@
         color: white;
         height: 35px;
         border-radius: 5px;
-
+        margin-top: 5px;
     }
 
     .enquiry-table-container {
@@ -474,6 +476,10 @@
 
     #recaptcha {
         width: 100%;
+    }
+
+    .bottom-space {
+        height: 50px;
     }
 
     @media (max-width: 650px) {
@@ -508,7 +514,7 @@
         .info-box {
             display: block;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 10%;
         }
 
         .info-wrapper {
@@ -545,6 +551,4 @@
             float: left;
         }
     }
-
-
 </style>

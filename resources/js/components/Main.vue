@@ -1,5 +1,7 @@
 <template>
+    <div id="main-wrapper">
         <router-view/>
+    </div>
 </template>
 
 <script>
@@ -9,6 +11,7 @@
 </script>
 
 <style lang="scss" scoped>
-    $headerQuoteHeight: 55px;
-    $headerHeight: 48px;
+ #main-wrapper {
+     height: 100%;
+ }
 </style>

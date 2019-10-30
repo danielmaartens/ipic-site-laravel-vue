@@ -1,6 +1,6 @@
 <template>
 
-    <div class="footer-container">
+    <div id="footer-container">
         <router-link class="left terms-link" to="/terms">Terms of Use</router-link>
         <span class="right">Ipic (Pty) Ltd © 2008-2020 All rights reserved.</span>
     </div>
@@ -10,20 +10,28 @@
 <script>
 
     export default {
-        name: "Footer"
+        name: "Footer",
+        mounted() {
+
+            $('#footer-container').width($('#main-container').width()-10);
+
+        }
     }
 </script>
 
 <style scoped lang="scss">
 
-    .footer-container {
+    #footer-container {
         background-color: #050065;
         color: white;
-        height: 20px;
-        line-height: 20px;
+        height: 23px;
+        line-height: 23px;
         font-size: 10px;
-        padding: 0px 5px 0 5px;
+        padding: 0 5px 0 5px;
         border-top: 1px solid white;
+        position: fixed;
+        bottom: 0;
+        border-bottom: 1px solid white;
     }
 
     .terms-link {

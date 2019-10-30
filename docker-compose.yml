@@ -1,0 +1,15 @@
+# create network using: docker network create --subnet=172.7.0.0/16 time-study
+
+version: "3.0"
+
+services:
+  ipic-site:
+    container_name: ipic-site
+    image: ipic/site:latest
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - 8080:8080
+      - 80:80
+
