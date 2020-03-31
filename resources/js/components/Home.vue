@@ -16,7 +16,6 @@
                 <p class="home-button-description">&quot;Helping others to be and to make heroes...&quot;</p>
             </router-link>
         </div>
-        <div class="content-fill"></div>
 
 
     </div>
@@ -54,6 +53,7 @@
 
     .home {
         height: 100%;
+        background-color:  #27215F;
     }
 
     .buttons {
@@ -98,7 +98,7 @@
     .content-fill {
         height: 100%;
         // background-image: linear-gradient(180deg, #040065, #49458F 70%);
-        background-color:  #040065;
+        background-color:  #27215F;
 
         @media (max-width: 650px) {
             height: 50%;

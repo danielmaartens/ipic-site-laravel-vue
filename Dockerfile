@@ -36,12 +36,10 @@ RUN rm /var/cache/apk/*
 COPY . /app
 COPY .env /app/.env
 
-RUN echo "Running composer install"
 RUN composer install
-RUN echo "Running npm install"
-RUN npm install >/dev/null 2>&1
+RUN npm install
 
-RUN npm run dev >/dev/null 2>&1
+RUN npm run prod
 
 EXPOSE 80
 EXPOSE 8080

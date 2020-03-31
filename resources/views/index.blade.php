@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Ipic Group</title>
+    <meta name="description" content="Ipic Group has 8 shopping centres and 1 commercial building located across the Cape.">
+    <meta name="keywords" content="Shopping Centre, Retail, Commercial, Investments, Property, Ipic, Property Group, Properties, Shop, Shopping, Chairty, Health, Gym, Active, Play Centre, Kids Activities, Ipic Play, Ipic Active, Ipic Investments, Ipic Properties, Ipic Help, Rian Maartens">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="http://ipic.properties">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <script>
         // Store old reference

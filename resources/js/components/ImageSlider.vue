@@ -111,7 +111,7 @@
             border: 1px solid rgba(#fff, .5);
             border-radius: 50%;
             cursor: pointer;
-            display: block;
+            display: none;
             height: 10px;
             font-size: 0;
             line-height: 0;

@@ -24,8 +24,8 @@
     #footer-container {
         background-color: #050065;
         color: white;
-        height: 23px;
-        line-height: 23px;
+        flex: 0 1 23px;
+        /*line-height: 23px;*/
         font-size: 10px;
         padding: 0 5px 0 5px;
         border-top: 1px solid white;

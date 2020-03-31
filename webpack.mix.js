@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+// var BrotliGzipPlugin = require('brotli-gzip-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,8 +19,30 @@ mix.webpackConfig({
             'vue$': 'vue/dist/vue.esm.js',
             '@': __dirname + '/resources/js'
         },
+        // plugins: [
+        //     new BrotliPlugin({
+        //         asset: '[path].br[query]',
+        //         test: /\.(js|css|html|svg)$/,
+        //             threshold: 10240,
+        //             minRatio: 0.8
+        //         })
+        // ]
     },
 });
+
+// mix.webpackConfig(webpack => {
+//     return {
+//         plugins: [
+//             new BrotliGzipPlugin({
+//                 asset: '[path].gz[query]',
+//                 algorithm: 'gzip',
+//                 test: /\.(js|css|html|svg)$/,
+//                 threshold: 10240,
+//                 minRatio: 0.8
+//             })
+//         ]
+//     };
+// });
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');

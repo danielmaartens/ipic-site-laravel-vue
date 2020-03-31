@@ -32,8 +32,8 @@ return [
 
     'recaptcha' => [
         'prod' => [
-            'key' => '6Lc_FMAUAAAAACfFzmni34cSsCk_vIGX-Ea_BHHa',
-            'secret' => '6Lc_FMAUAAAAAH2aAT2dkocxUS71AYdYxv54HO5z'
+            'key' => '6Lc3YsAUAAAAALZiKKzuIvLK9wyQQFnqSS9rB0fZ',
+            'secret' => '6Lc3YsAUAAAAAA7hIS-2ev1JbZMvE5-PpofBlklu'
         ],
         'dev' => [
             'key' => '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',

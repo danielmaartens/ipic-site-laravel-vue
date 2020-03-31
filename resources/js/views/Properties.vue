@@ -18,23 +18,23 @@
             <br>
             <router-link to="/property/2">Ipic Shopping Centre Die Boord</router-link>
             <br>
-            <router-link to="/property/5">Ipic Shopping Centre Hermanus</router-link>
+            <router-link to="/property/4">Ipic Shopping Centre Hermanus</router-link>
             <br>
-            <router-link to="/property/6">Ipic Shopping Centre Kenridge</router-link>
+            <router-link to="/property/5">Ipic Shopping Centre Kenridge</router-link>
             <br>
-            <router-link to="/property/7">Ipic Shopping Centre Soneike</router-link>
+            <router-link to="/property/3">Ipic Shopping Centre Soneike</router-link>
             <br>
-            <router-link to="/property/8">Ipic Shopping Centre Sonstraal</router-link>
+            <router-link to="/property/6">Ipic Shopping Centre Sonstraal</router-link>
             <br>
-            <router-link to="/property/9">Ipic Shopping Centre Vredenburg</router-link>
+            <router-link to="/property/7">Ipic Shopping Centre Vredenburg</router-link>
             <br>
-            <router-link to="/property/3">Habitat Centre @ the mall</router-link>
+            <router-link to="/property/9">Habitat Centre @ the mall</router-link>
             <br>
         </div>
 
         <h3 class="heading">Other Properties</h3>
         <div class="property-links">
-            <router-link to="/property/4">Heritage House Office Building</router-link>
+            <router-link to="/property/8">Heritage House Office Building</router-link>
             <br>
         </div>
 

@@ -1,81 +1,88 @@
 <template>
     <div>
         <div v-if="images && images.length > 0">
-        <ImageSlider :images="images"/>
+            <ImageSlider :images="images"/>
         </div>
         <div class="container">
-        <div v-if="propertyDataRequested" class="table__spinner">
-            <Spinner/>
-            <div class="spinner-text">Loading Data...</div>
-        </div>
-        <div v-if="propertyDataSuccess" class="clear-left info-wrapper">
-            <h3>{{selectedProperty.info.name}}</h3>
-            <div class="info-box right">
-                <div class="address-trading-info">
-                <h4 class="h-trading-margin">Trading Hours</h4>
-                <div>{{selectedProperty.info.trading_hours}}</div>
-                <h4 class="h-address-margin">Address</h4>
-                <div>{{selectedProperty.info.address1}}</div>
-                <div>{{selectedProperty.info.address2}}</div>
-                <div>{{selectedProperty.info.address3}}, {{selectedProperty.info.postcode}}</div>
-                <div>{{selectedProperty.info.region}}</div>
-                <div>South Africa</div>
-                    <div v-if="mobile">
+            <div v-if="propertyDataRequested" class="table__spinner">
+                <Spinner/>
+                <div class="spinner-text">Loading Data...</div>
+            </div>
+            <div v-if="propertyDataSuccess" class="clear-left info-wrapper">
+                <h3>{{selectedProperty.info.name}}</h3>
+                <div id="top-info-box" class="info-box info-box-top right">
+                    <div class="address-trading-info">
+                        <h4 class="h-trading-margin">Trading Hours</h4>
+                        <div>{{selectedProperty.info.trading_hours}}</div>
+                        <h4 class="h-address-margin">Address</h4>
+                        <div>{{selectedProperty.info.address1}}</div>
+                        <div>{{selectedProperty.info.address2}}</div>
+                        <div>{{selectedProperty.info.address3}}, {{selectedProperty.info.postcode}}</div>
+                        <div>{{selectedProperty.info.region}}</div>
+                        <div>South Africa</div>
+                        <div v-if="mobile">
+                            <h4 class="h-emergency">Emergency Contact</h4>
+                            <div><a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="google-map-container">
+                        <GmapMap
+                            :options="{
+                               zoomControl: true,
+                               mapTypeControl: false,
+                               scaleControl: false,
+                               streetViewControl: false,
+                               rotateControl: false,
+                               fullscreenControl: true,
+                               disableDefaultUi: false
+                             }"
+                            :center="selectedProperty.info.location"
+                            :zoom="15"
+                            map-type-id="roadmap"
+                            id="google-map"
+                        >
+                            <GmapMarker
+                                :position="google && new google.maps.LatLng(selectedProperty.info.location.lat, selectedProperty.info.location.lng)"
+                                :clickable="true"
+                            />
+                        </GmapMap>
+                    </div>
+
+                    <div v-if="!mobile">
                         <h4 class="h-emergency">Emergency Contact</h4>
-                        <div><a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a></div>
+                        <a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
                     </div>
                 </div>
 
-                <div class="google-map-container">
-                    <GmapMap
-                        :center="selectedProperty.info.location"
-                        :zoom="15"
-                        map-type-id="roadmap"
-                        class="google-map"
+                <div id="overview"></div>
+                <div class="bottom-container">
+                    <div class="table">
+                        <h2 class="h-tenants">Tenants</h2>
+                        <data-table v-if="selectedProperty" :items="selectedProperty.tenants"
+                                    :perPage="selectedProperty.tenants.length">
+                            <data-column field="name" label="Tenant" width="50%">
+                                <template slot-scope="props">
+                                    <a rel="nofollow" class="tenant-url" v-if="props.item.url" :href="props.item.url"
+                                       target="_blank">{{props.item.name}}</a>
+                                    <div v-else>{{props.item.name}}</div>
+                                </template>
+                            </data-column>
+                            <data-column field="shopNumber" label="Shop No" width="25%"/>
+                            <data-column field="contactNumber" label="Contact">
+                                <template slot-scope="props">
+                                    <a class="contact-number" :href="`tel:${props.item.contactNumber}`">{{props.item.contactNumber}}</a>
+                                </template>
+                            </data-column>
+                        </data-table>
+                    </div>
+                    <div class="info-box info-box-bottom right enquiries">
 
-                    >
-                        <GmapMarker
-                            :key="index"
-                            v-for="(m, index) in markers"
-                            :position="m.position"
-                            :clickable="true"
-                            :draggable="true"
-                            @click="center=m.position"
-                        />
-                    </GmapMap>
-                </div>
-
-                <div v-if="!mobile">
-                <h4 class="h-emergency">Emergency Contact</h4>
-                <a class="h-emergency-link" :href="`tel:${selectedProperty.info.emergency_number}`">{{selectedProperty.info.emergency_number}}</a>
-                </div>
-            </div>
-
-            <div id="overview"></div>
-            <div class="bottom-container">
-                <div class="table">
-                    <h2 class="h-tenants">Tenants</h2>
-                    <data-table v-if="selectedProperty" :items="selectedProperty.tenants" :perPage="selectedProperty.tenants.length">
-                        <data-column field="name" label="Tenant" width="50%">
-                            <template slot-scope="props">
-                                <a class="tenant-url" v-if="props.item.url" :href="props.item.url" target="_blank">{{props.item.name}}</a>
-                                <div v-else>{{props.item.name}}</div>
-                            </template>
-                        </data-column>
-                        <data-column field="shopNumber" label="Shop No" width="25%"/>
-                        <data-column field="contactNumber" label="Contact">
-                            <template slot-scope="props">
-                                <a class="contact-number" :href="`tel:${props.item.contactNumber}`">{{props.item.contactNumber}}</a>
-                            </template>
-                        </data-column>
-                    </data-table>
-                </div>
-                <div class="info-box right enquiries">
-
-                    <h2 class="h-enquiries">Enquiries</h2>
-                    <p>Please feel free to contact us if you require further information.</p>
-                    <div class="enquiry-table-container">
-                        <div class="enquiry-input-table">
+                        <h2 class="h-enquiries">Enquiries</h2>
+                        <p>Please feel free to contact us if you require further information.</p>
+                        <div class="enquiry-table-container">
+                            <div class="enquiry-input-table">
 
                                 <label for="enquiry-department">Re:</label>
                                 <select
@@ -121,26 +128,27 @@
                                 />
 
 
-                                    <textarea
-                                        class="enquiry-message-container"
-                                        v-model="message"
-                                    >
+                                <textarea
+                                    class="enquiry-message-container"
+                                    v-model="message"
+                                >
                                     </textarea>
 
 
-                                    <div>
-                                        <div id="recaptcha" class="g-recaptcha"></div>
+                                <div>
+                                    <div id="recaptcha" class="g-recaptcha"></div>
                                     <a id="enquiry-activate-email" href="#" style="display: none;"></a>
-                                    <button class="enquiry-email-button" @click.prevent="createMailtoLink">Mail Us</button>
-                                    </div>
+                                    <button class="enquiry-email-button" @click.prevent="createMailtoLink">Mail Us
+                                    </button>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
+                    <div class="bottom-space"></div>
                 </div>
-                <div class="bottom-space"></div>
-            </div>
 
-        </div>
+            </div>
 
         </div>
     </div>
@@ -148,6 +156,7 @@
 
 <script>
 
+    import {gmapApi} from "vue2-google-maps";
     import {DataTable, DataColumn} from 'vue-teible';
     import {mapActions, mapState} from 'vuex';
     import Spinner from "../components/Spinner";
@@ -210,10 +219,16 @@
 
             $('#overview').html(this.selectedProperty.info.overview);
 
+            if (this.mobile) {
+                $('#google-map').height($('#top-info-box').height() + 5);
+                $('#google-map').width($('#top-info-box').width() * 0.6);
+            }
+
             const key = this.recaptachaTestCredentials.key;
             const size = this.mobile ? 'normal' : 'compact';
 
             let _captchaTries = 0;
+
             function recaptchaOnload() {
                 _captchaTries++;
                 if (_captchaTries > 9)
@@ -222,7 +237,7 @@
                     grecaptcha.render("recaptcha", {
                         sitekey: key,
                         size: size,
-                        callback: function() {
+                        callback: function () {
                             console.log('recaptcha callback');
                         }
                     });
@@ -245,6 +260,7 @@
                 'propertyDataRequested',
                 'propertyDataSuccess'
             ]),
+            google: gmapApi,
         },
         methods: {
             ...mapActions([
@@ -303,16 +319,16 @@
         padding-top: 10px;
     }
 
-    .google-map {
+    #google-map {
         width: 100%;
         height: 200px;
     }
 
     .info-box {
         display: inline-block;
-        width: 30%;
+        width: 20%;
         border: 1px solid grey;
-        background-color: #fff9e9;
+        background-color: white;
         padding: 0 5px 5px 5px;
         font-size: 12px;
         border-radius: 10px;
@@ -323,7 +339,7 @@
     .bottom-container {
         width: 100%;
         margin: {
-            top: 20px;
+            top: 100px;
             bottom: 10px;
         }
     }
@@ -361,8 +377,8 @@
     }
 
     .contact-number, .tenant-url {
-            text-decoration: underline;
-            color: #040065;
+        text-decoration: underline;
+        color: #040065;
     }
 
     input, textarea {
@@ -519,7 +535,15 @@
         .info-box {
             display: block;
             width: 100%;
-            margin-bottom: 10%;
+            margin-bottom: 10px;
+
+            &-top {
+                padding: 0 0 5px 5px;
+            }
+
+            &-bottom {
+                margin-bottom: 10%;
+            }
         }
 
         .info-wrapper {
@@ -531,29 +555,23 @@
             width: 40%;
         }
 
-        .google-map {
-            float: right;
+        #google-map {
             width: 60%;
-            height: 185px;
-            position: relative;
+            position: absolute;
             display: inline-block;
             border-radius: 10px !important;
         }
 
         .google-map-container {
-            padding-top: 10px;
+            /*padding-top: 10px;*/
             display: inline;
-            position: relative;
-            top: 6px;
+            /*position: relative;*/
+            /*top: 6px;*/
             border-radius: 10px !important;
         }
 
         .vue-map-container .vue-map {
             border-radius: 10px !important;
-        }
-
-        .h-emergency {
-            float: left;
         }
     }
 </style>

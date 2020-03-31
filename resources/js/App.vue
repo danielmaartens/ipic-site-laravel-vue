@@ -4,6 +4,9 @@
 
             <div @click.prevent="navigate('/')" class="header-logo">
 
+<!--                <div class="header-logo-ipic-border">-->
+<!--                    <img src="/images/logos/header.png"/>-->
+<!--                </div>-->
                 <div class="header-logo-ipic">
                     <img src="/images/logos/nav_logo_ipic.png"/>
                 </div>
@@ -27,7 +30,7 @@
 
                 <div class="nav-container">
                     <div class="nav-link-main-container">
-                        <div class="nav-link-main">
+                        <div id="link-group-overview" class="nav-link-main">
                             <div @click.prevent="navigate('/overview')">group overview</div>
                         </div>
                     </div>
@@ -56,7 +59,7 @@
                         </div>
                     </div>
                     <div class="nav-link-main-container">
-                        <div class="nav-link-main" @click.prevent="navigate('/charity')">
+                        <div id="link-help" class="nav-link-main" @click.prevent="navigate('/charity')">
                             Ipic Help
                         </div>
                     </div>
@@ -74,10 +77,6 @@
             </div>
             <div id="main">
                 <Main/>
-
-<!--                <div v-if="mobile">-->
-<!--                    <Footer/>-->
-<!--                </div>-->
 
             </div>
 
@@ -119,7 +118,7 @@
 
             if (width <= 650) {
                 this.mobile = true;
-                // $('#nav').width(width);
+                // $('#nav').width(screen.width);
             }
 
         },
@@ -202,10 +201,12 @@
 
     #app-container {
         margin: 0 auto;
-        width: 70%;
+        width: 100%;
         background-color: white;
         padding: 5px;
         height: 100%;
+        display: flex;
+        flex-flow: column;
 
         @media (max-width: 768px) {
                 width: 100%;
@@ -215,12 +216,14 @@
 
     #main-container {
         display: flex;
+        /*flex-flow: column;*/
         height: 100%;
+        flex: 1 1 auto;
     }
 
     #nav {
         // background-image: linear-gradient(-90deg, #040065, #444084);
-        background-color:  #040065;
+        background-color:  #27215F;
         width: 200px;
         color: white;
         vertical-align: top;
@@ -231,7 +234,8 @@
     #main {
         display: table-cell;
         flex: 1;
-        overflow-y: scroll;
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .content-logo {
@@ -263,7 +267,8 @@
         border-bottom: 3px solid white;
         display: flex;
         /*background-image: linear-gradient(90deg, #040065 40%, #444084);*/
-        background-color:  #040065;
+        background-color:  #27215F;
+        flex: 0 1 auto;
 
         &-logo {
             display: flex;
@@ -274,12 +279,23 @@
 
     .middle-header-container {
         flex: 1;
-        background-color: #040065;
+        /*background-color: #27215F;*/
     }
 
     .header-logo-ipic {
         display: inline-block;
-        border-right: 3px solid white;
+        /*border-right: 3px solid white;*/
+
+        img {
+            height: 60px;
+            border-right: 3px solid white;
+        }
+    }
+
+    .header-logo-ipic-border {
+        display: flex;
+        align-items: center;
+        /*border-right: 3px solid white;*/
 
         img {
             height: 60px;
@@ -289,13 +305,13 @@
     .nav-logo-group {
         display: inline-block;
         flex: 0.95;
-        background-color: #040065;
+        /*background-color: #040065;*/
 
         img {
-            height: 28px;
+            height: 57px;
             position: relative;
-            left: 16px;
-            top: 19px;
+            left: 3px;
+            top: 2px;
         }
     }
 
@@ -305,7 +321,7 @@
         align-items: center;
         justify-content: center;
         flex: 0.1;
-        background-color: #040065;
+        background-color: #27215F;
 
         img {
             height: 20px;
@@ -395,6 +411,16 @@
         padding-top: 5px;
     }
 
+    #link {
+        &-group-overview {
+            border: none;
+        }
+
+        &-help {
+            border: none;
+        }
+    }
+
     .left {
         float: left;
     }
@@ -459,6 +485,7 @@
 
         #nav {
             position: fixed;
+            z-index: 1;
             right: 100%;
             top: 50px;
             width: 100%;
@@ -467,12 +494,14 @@
             transition: right 0.5s ease-in-out;
         }
 
-        #nav-link-main {
-            padding-top: 10px;
+        .nav-link-main {
+            left: 2%;
+            width: 96%;
         }
 
-        #nav-container {
-            margin-top: 30px;
+        .nav-container {
+            margin-top: 40px;
+            width: 50%;
         }
 
         #main {
@@ -504,10 +533,10 @@
 
         .nav-logo-group {
             img {
-                left: 6px;
-                height: 22px;
+                left: 0;
+                height: 45px;
                 position: relative;
-                top: 3px;
+                top: 0;
 
             }
         }

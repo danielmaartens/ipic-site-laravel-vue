@@ -5,7 +5,7 @@ version: "3.0"
 services:
   ipic-site:
     container_name: ipic-site
-    image: ipic/site:latest
+    image: ipic/site-new
     restart: always
     env_file:
       - ./.env
